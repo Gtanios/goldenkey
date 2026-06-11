@@ -351,8 +351,8 @@
     .amenities-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 1px;
-      border: 1px solid rgba(201,168,76,0.12);
+      gap: 0;
+      width: 100%;
     }
     .amenity {
       background: var(--dark-3);
@@ -851,7 +851,7 @@
 
 
 <div style="border-top: 1px solid rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.08);">
-  <div class="amenities-grid reveal" style="margin: 0; max-width: 1400px; margin-left: auto; margin-right: auto;">
+  <div class="amenities-grid reveal">
       <div class="amenity"><i class="ti ti-air-conditioning"></i><span class="amenity-name gr">Κλιματισμός</span><span class="amenity-name en hidden">A/C</span><span class="amenity-desc gr">Σε κάθε δωμάτιο</span><span class="amenity-desc en hidden">Every room</span></div>
       <div class="amenity"><i class="ti ti-wifi"></i><span class="amenity-name gr">Wi-Fi</span><span class="amenity-name en hidden">Wi-Fi</span><span class="amenity-desc gr">Γρήγορη σύνδεση</span><span class="amenity-desc en hidden">High-speed</span></div>
       <div class="amenity"><i class="ti ti-device-tv"></i><span class="amenity-name gr">Τηλεόραση</span><span class="amenity-name en hidden">TV</span><span class="amenity-desc gr">Σε κάθε δωμάτιο</span><span class="amenity-desc en hidden">Every room</span></div>
