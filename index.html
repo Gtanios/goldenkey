@@ -350,7 +350,7 @@
     /* ── AMENITIES ── */
     .amenities-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1px;
       margin-top: 3rem;
       border: 1px solid rgba(201,168,76,0.12);
@@ -678,6 +678,7 @@
 
       /* About */
       .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+      .amenities-grid { grid-template-columns: repeat(3, 1fr) !important; }
       .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
       /* Thermaic quote */
