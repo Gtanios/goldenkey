@@ -155,30 +155,7 @@
       animation: goldBreath2 10s ease-in-out infinite;
       border-radius: 50%;
     }
-    .hero-lines {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      opacity: 0.04;
-    }
-    .hero-lines::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px; height: 600px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-    }
-    .hero-lines::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 900px; height: 900px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-    }
+    .hero-lines { display: none; }
 
     .hero-logo-area {
       position: relative;
