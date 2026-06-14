@@ -698,8 +698,9 @@
       .hero-cta .btn-gold, .hero-cta .btn-outline { width: 220px; text-align: center; }
 
       /* Stats */
-      .stats-bar { padding: 1.5rem; gap: 0; flex-wrap: wrap; }
-      .stat-item { max-width: none; min-width: 50%; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.12); padding: 1rem; }
+      .stats-bar { padding: 1rem; gap: 0; flex-wrap: wrap; }
+      .stat-item { max-width: none; width: 50%; flex: none; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.12); padding: 1rem 0.5rem; }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(201,168,76,0.12); }
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
 
       /* About */
