@@ -385,8 +385,9 @@
       flex-direction: column;
       gap: 10px;
       transition: background 0.2s;
-      border: 1px solid transparent;
+      border-right: 1px solid rgba(201,168,76,0.15); border-left: none; border-top: none; border-bottom: none;
     }
+    .amenity:last-child { border-right: none; }
     .amenity:hover {
       background: var(--dark-4);
       border-color: rgba(201,168,76,0.2);
