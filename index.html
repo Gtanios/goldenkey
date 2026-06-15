@@ -1116,14 +1116,8 @@
         </div>
         <input type="email" id="inp-email" placeholder="Email">
         <div class="form-row">
-          <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-            <label style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);"><span class="gr">Άφιξη</span><span class="en hidden">Check-in</span></label>
-            <input type="date" style="color: rgba(255,255,255,0.5); width:100%;">
-          </div>
-          <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
-            <label style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);"><span class="gr">Αναχώρηση</span><span class="en hidden">Check-out</span></label>
-            <input type="date" style="color: rgba(255,255,255,0.5); width:100%;">
-          </div>
+          <input type="text" id="inp-checkin" placeholder="Άφιξη (ηη/μμ/εεεε)">
+          <input type="text" id="inp-checkout" placeholder="Αναχώρηση (ηη/μμ/εεεε)">
         </div>
         <textarea id="inp-msg" placeholder="Μήνυμα..."></textarea>
         <button class="btn-gold" style="width:100%; padding: 15px;" onclick="alert('Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.')">
@@ -1166,10 +1160,12 @@
     document.getElementById('btn-gr').classList.toggle('active', lang === 'gr');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     const isGr = lang === 'gr';
-    document.getElementById('inp-name').placeholder  = isGr ? 'Όνομα'   : 'Name';
-    document.getElementById('inp-phone').placeholder = isGr ? 'Τηλέφωνο': 'Phone';
-    document.getElementById('inp-email').placeholder = 'Email';
-    document.getElementById('inp-msg').placeholder   = isGr ? 'Μήνυμα…' : 'Message…';
+    document.getElementById('inp-name').placeholder     = isGr ? 'Όνομα'                  : 'Name';
+    document.getElementById('inp-phone').placeholder    = isGr ? 'Τηλέφωνο'               : 'Phone';
+    document.getElementById('inp-email').placeholder    = 'Email';
+    document.getElementById('inp-msg').placeholder      = isGr ? 'Μήνυμα…'                : 'Message…';
+    document.getElementById('inp-checkin').placeholder  = isGr ? 'Άφιξη (ηη/μμ/εεεε)'    : 'Check-in (dd/mm/yyyy)';
+    document.getElementById('inp-checkout').placeholder = isGr ? 'Αναχώρηση (ηη/μμ/εεεε)': 'Check-out (dd/mm/yyyy)';
   }
 
   // Sticky nav
