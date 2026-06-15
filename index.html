@@ -727,7 +727,8 @@
       /* Contact */
       .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .contact-inner .section-title { font-size: 1.6rem; }
-      .form-row { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .form-row.stacked { grid-template-columns: 1fr; }
 
       /* Footer */
       footer { flex-direction: column; text-align: center; gap: 1rem; }
@@ -1110,7 +1111,7 @@
       <p class="form-label gr">Στείλτε μας μήνυμα</p>
       <p class="form-label en hidden">Send us a message</p>
       <div class="contact-form">
-        <div class="form-row">
+        <div class="form-row stacked">
           <input type="text" id="inp-name" placeholder="Όνομα">
           <input type="tel" id="inp-phone" placeholder="Τηλέφωνο">
         </div>
