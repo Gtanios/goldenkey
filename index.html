@@ -582,7 +582,7 @@
     }
     .contact-form input::placeholder,
     .contact-form textarea::placeholder { color: var(--text-muted); }
-    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.6); cursor: pointer; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.5) sepia(1) saturate(2) hue-rotate(5deg); cursor: pointer; opacity: 0.7; }
     .contact-form input:focus,
     .contact-form textarea:focus { border-color: rgba(201,168,76,0.5); }
     .contact-form textarea { height: 120px; resize: none; }
@@ -1120,11 +1120,11 @@
         <div class="form-row">
           <div style="display:flex;flex-direction:column;gap:4px;flex:1;">
             <span style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding-left:2px;"><span class="gr">Άφιξη</span><span class="en hidden">Check-in</span></span>
-            <input type="date" style="color:transparent;width:100%;" onfocus="this.style.color='rgba(255,255,255,0.8)'" onblur="if(!this.value)this.style.color='transparent'">
+            <input type="date" style="color:rgba(255,255,255,0.6);width:100%;">
           </div>
           <div style="display:flex;flex-direction:column;gap:4px;flex:1;">
             <span style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding-left:2px;"><span class="gr">Αναχώρηση</span><span class="en hidden">Check-out</span></span>
-            <input type="date" style="color:transparent;width:100%;" onfocus="this.style.color='rgba(255,255,255,0.8)'" onblur="if(!this.value)this.style.color='transparent'">
+            <input type="date" style="color:rgba(255,255,255,0.6);width:100%;">
           </div>
         </div>
         <textarea id="inp-msg" placeholder="Μήνυμα..."></textarea>
