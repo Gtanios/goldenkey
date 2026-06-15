@@ -1117,11 +1117,11 @@
       <p class="form-label en hidden">Send us a message</p>
       <div style="display:grid; grid-template-columns:2fr 1.5fr; gap:1rem; align-items:stretch;" class="form-map-grid">
       <div class="contact-form">
-        <div class="form-row stacked">
-          <input type="text" id="inp-name" placeholder="Όνομα" required>
+        <input type="text" id="inp-name" placeholder="Όνομα" required>
+        <div class="form-row">
           <input type="tel" id="inp-phone" placeholder="Τηλέφωνο" required pattern="[0-9+\s\-]{7,}">
+          <input type="email" id="inp-email" placeholder="Email" required>
         </div>
-        <input type="email" id="inp-email" placeholder="Email" required>
         <textarea id="inp-msg" placeholder="Μήνυμα..." required></textarea>
         <button class="btn-gold" style="width:100%; padding: 15px;" onclick="submitForm(event)">
           <span class="gr">Αποστολή Αιτήματος</span>
