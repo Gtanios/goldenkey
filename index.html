@@ -1111,15 +1111,15 @@
       <p class="form-label en hidden">Send us a message</p>
       <div class="contact-form">
         <div class="form-row">
-          <input type="text" placeholder="Όνομα / Name">
-          <input type="tel" placeholder="Τηλέφωνο / Phone">
+          <input type="text" id="inp-name" placeholder="Όνομα">
+          <input type="tel" id="inp-phone" placeholder="Τηλέφωνο">
         </div>
-        <input type="email" placeholder="Email">
+        <input type="email" id="inp-email" placeholder="Email">
         <div class="form-row">
           <input type="date" style="color: rgba(255,255,255,0.5);">
           <input type="date" style="color: rgba(255,255,255,0.5);">
         </div>
-        <textarea placeholder="Μήνυμα / Message..."></textarea>
+        <textarea id="inp-msg" placeholder="Μήνυμα..."></textarea>
         <button class="btn-gold" style="width:100%; padding: 15px;" onclick="alert('Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.')">
           <span class="gr">Αποστολή Αιτήματος</span>
           <span class="en hidden">Send Request</span>
@@ -1159,6 +1159,11 @@
     document.querySelectorAll('.en').forEach(el => el.classList.toggle('hidden', lang !== 'en'));
     document.getElementById('btn-gr').classList.toggle('active', lang === 'gr');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    const isGr = lang === 'gr';
+    document.getElementById('inp-name').placeholder  = isGr ? 'Όνομα'   : 'Name';
+    document.getElementById('inp-phone').placeholder = isGr ? 'Τηλέφωνο': 'Phone';
+    document.getElementById('inp-email').placeholder = 'Email';
+    document.getElementById('inp-msg').placeholder   = isGr ? 'Μήνυμα…' : 'Message…';
   }
 
   // Sticky nav
