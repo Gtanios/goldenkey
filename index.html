@@ -1115,12 +1115,12 @@
       <p class="form-label en hidden">Send us a message</p>
       <div class="contact-form">
         <div class="form-row stacked">
-          <input type="text" id="inp-name" placeholder="Όνομα">
-          <input type="tel" id="inp-phone" placeholder="Τηλέφωνο">
+          <input type="text" id="inp-name" placeholder="Όνομα" required>
+          <input type="tel" id="inp-phone" placeholder="Τηλέφωνο" required pattern="[0-9+\s\-]{7,}">
         </div>
-        <input type="email" id="inp-email" placeholder="Email">
-        <textarea id="inp-msg" placeholder="Μήνυμα..."></textarea>
-        <button class="btn-gold" style="width:100%; padding: 15px;" onclick="alert('Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.')">
+        <input type="email" id="inp-email" placeholder="Email" required>
+        <textarea id="inp-msg" placeholder="Μήνυμα..." required></textarea>
+        <button class="btn-gold" style="width:100%; padding: 15px;" onclick="submitForm(event)">
           <span class="gr">Αποστολή Αιτήματος</span>
           <span class="en hidden">Send Request</span>
         </button>
@@ -1152,6 +1152,28 @@
     menu.classList.toggle('open');
     hamburger.classList.toggle('open');
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const name  = document.getElementById('inp-name');
+    const phone = document.getElementById('inp-phone');
+    const email = document.getElementById('inp-email');
+    const msg   = document.getElementById('inp-msg');
+    const isGr  = !document.getElementById('btn-gr').classList.contains('active') === false;
+    let ok = true;
+    [name, phone, email, msg].forEach(el => {
+      if (!el.value.trim() || !el.checkValidity()) {
+        el.style.borderColor = 'rgba(220,80,80,0.7)';
+        ok = false;
+      } else {
+        el.style.borderColor = '';
+      }
+    });
+    if (!ok) return;
+    const thanks = isGr ? 'Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.' : 'Thank you! We will contact you shortly.';
+    alert(thanks);
+    [name, phone, email, msg].forEach(el => el.value = '');
   }
 
   function setLang(lang) {
