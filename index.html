@@ -1116,8 +1116,14 @@
         </div>
         <input type="email" id="inp-email" placeholder="Email">
         <div class="form-row">
-          <input type="date" style="color: rgba(255,255,255,0.5);">
-          <input type="date" style="color: rgba(255,255,255,0.5);">
+          <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
+            <label style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);"><span class="gr">Άφιξη</span><span class="en hidden">Check-in</span></label>
+            <input type="date" style="color: rgba(255,255,255,0.5); width:100%;">
+          </div>
+          <div style="display:flex; flex-direction:column; gap:4px; flex:1;">
+            <label style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);"><span class="gr">Αναχώρηση</span><span class="en hidden">Check-out</span></label>
+            <input type="date" style="color: rgba(255,255,255,0.5); width:100%;">
+          </div>
         </div>
         <textarea id="inp-msg" placeholder="Μήνυμα..."></textarea>
         <button class="btn-gold" style="width:100%; padding: 15px;" onclick="alert('Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.')">
