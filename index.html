@@ -1331,7 +1331,8 @@
       const imgs = card.querySelectorAll('img');
       galleryData[roomNum] = {
         photos: Array.from(imgs).map(i => ({ src: i.src, alt: i.alt || '' })),
-        name: card.querySelector('.room-name.gr') ? card.querySelector('.room-name.gr').textContent : roomNum
+        nameGr: card.querySelector('.room-name.gr') ? card.querySelector('.room-name.gr').textContent : roomNum,
+        nameEn: card.querySelector('.room-name.en') ? card.querySelector('.room-name.en').textContent : roomNum
       };
     });
   }
@@ -1363,7 +1364,9 @@
     if (!data) return;
     const photo = data.photos[lbIdx];
     document.getElementById('lb-img').src = photo.src;
-    document.getElementById('lb-caption').textContent = data.name + '  ·  ' + (lbIdx + 1) + ' / ' + data.photos.length;
+    const isGr = document.getElementById('btn-gr').classList.contains('active');
+    const roomName = isGr ? data.nameGr : data.nameEn;
+    document.getElementById('lb-caption').textContent = roomName + '  ·  ' + (lbIdx + 1) + ' / ' + data.photos.length;
     // dots
     const dots = document.getElementById('lb-dots');
     dots.innerHTML = data.photos.map((_, i) =>
