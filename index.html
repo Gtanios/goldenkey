@@ -1425,7 +1425,9 @@
     const photo = data.photos[lbIdx];
     document.getElementById('lb-img').src = photo.src;
     const isGr = document.getElementById('btn-gr').classList.contains('active');
-    const roomName = isGr ? data.nameGr : data.nameEn;
+    const accentMap = { 'ά':'α', 'έ':'ε', 'ή':'η', 'ί':'ι', 'ό':'ο', 'ύ':'υ', 'ώ':'ω', 'ϊ':'ι', 'ΐ':'ι' };
+    const stripAccents = s => s.replace(/[άέήίόύώϊΐ]/g, c => accentMap[c]);
+    const roomName = isGr ? stripAccents(data.nameGr) : data.nameEn;
     document.getElementById('lb-caption').textContent = roomName + '  ·  ' + (lbIdx + 1) + ' / ' + data.photos.length;
     // dots
     const dots = document.getElementById('lb-dots');
