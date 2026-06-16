@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -780,8 +780,8 @@
       <a href="#contact" class="en hidden">Contact</a>
     </div>
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('gr')" id="btn-gr"><span style="font-size:15px">🇬🇷</span> ΕΛ</button>
-      <button class="lang-btn" onclick="setLang('en')" id="btn-en"><span style="font-size:15px">🇬🇧</span> EN</button>
+      <button class="lang-btn" onclick="setLang('gr')" id="btn-gr"><span style="font-size:15px">🇬🇷</span> ΕΛ</button>
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en"><span style="font-size:15px">🇬🇧</span> EN</button>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="margin-left: 1rem;">
       <span></span><span></span><span></span>
@@ -1319,7 +1319,7 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  setLang('gr');
+  setLang('en');
 
   // ── LIGHTBOX ──
   const galleryData = {};
