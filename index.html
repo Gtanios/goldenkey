@@ -1346,12 +1346,18 @@
     if (!ok) return;
     const thanks = isGr ? 'Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.' : 'Thank you! We will contact you shortly.';
     const errMsg = isGr ? 'Κάτι πήγε στραβά. Δοκιμάστε ξανά.' : 'Something went wrong. Please try again.';
-    fetch('https://formspree.io/f/xykavlqb', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(document.getElementById('contact-form'))
-    }).then(res => {
-      if (res.ok) {
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'e2dc99a9-2e32-4956-9547-4da5cd9abfeb',
+        name: name.value,
+        phone: phone.value,
+        email: email.value,
+        message: msg.value
+      })
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
         alert(thanks);
         [name, phone, email, msg].forEach(el => el.value = '');
       } else {
