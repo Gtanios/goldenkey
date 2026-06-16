@@ -930,8 +930,8 @@
 
 <!-- GALLERY -->
 <div class="section" id="gallery" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
-  <h2 class="section-title gr" style="text-align:center;">Εσωτερικός & Εξωτερικός Χώρος</h2>
-  <h2 class="section-title en hidden" style="text-align:center;">Interior & Exterior</h2>
+  <h2 class="section-title gr" style="text-align:center;">Οι Χώροι μας</h2>
+  <h2 class="section-title en hidden" style="text-align:center;">Our Spaces</h2>
   <div class="gallery-grid">
     <div class="gallery-item" onclick="openGeneralGallery(0)"><img src="gallery/Interior1.jpg" alt="Interior 1" loading="lazy"></div>
     <div class="gallery-item" onclick="openGeneralGallery(1)"><img src="gallery/Interior2.jpg" alt="Interior 2" loading="lazy"></div>
@@ -1383,8 +1383,8 @@
   buildGalleryData();
   galleryData['general'] = {
     photos: Array.from(document.querySelectorAll('.gallery-item img')).map(i => ({ src: i.src, alt: i.alt || '' })),
-    nameGr: 'Εσωτερικός & Εξωτερικός Χώρος',
-    nameEn: 'Interior & Exterior'
+    nameGr: 'Οι Χώροι μας',
+    nameEn: 'Our Spaces'
   };
 
   let lbRoom = null, lbIdx = 0;
