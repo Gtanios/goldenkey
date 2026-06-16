@@ -547,6 +547,29 @@
       position: relative;
     }
     .thermaic-quote em { color: var(--gold); font-style: normal; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.1);
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    }
     .thermaic-sub {
       font-size: 10px;
       letter-spacing: 0.2em;
@@ -903,6 +926,26 @@
 <div class="thermaic-section">
   <p class="thermaic-quote gr">"Ξύπνα στον ήχο των κυμάτων, με <em>θέα τον Θερμαϊκό Κόλπο</em> να ανοίγεται μπροστά σου"</p>
   <p class="thermaic-quote en hidden">"Wake up to the sound of the waves, with the <em>Thermaic Gulf</em> stretching before you"</p>
+</div>
+
+<!-- GALLERY -->
+<div class="section" id="gallery" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+  <h2 class="section-title gr" style="text-align:center;">Εσωτερικός & Εξωτερικός Χώρος</h2>
+  <h2 class="section-title en hidden" style="text-align:center;">Interior & Exterior</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openGeneralGallery(0)"><img src="gallery/Interior1.jpg" alt="Interior 1" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(1)"><img src="gallery/Interior2.jpg" alt="Interior 2" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(2)"><img src="gallery/Interior3.jpg" alt="Interior 3" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(3)"><img src="gallery/Interior4.jpg" alt="Interior 4" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(4)"><img src="gallery/Interior5.jpg" alt="Interior 5" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(5)"><img src="gallery/Interior6.jpg" alt="Interior 6" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(6)"><img src="gallery/Interior7.jpg" alt="Interior 7" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(7)"><img src="gallery/Interior8.jpg" alt="Interior 8" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(8)"><img src="gallery/Interior9.jpg" alt="Interior 9" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(9)"><img src="gallery/Interior10.jpg" alt="Interior 10" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(10)"><img src="gallery/Exterior1.jpg" alt="Exterior 1" loading="lazy"></div>
+    <div class="gallery-item" onclick="openGeneralGallery(11)"><img src="gallery/Exterior2.jpg" alt="Exterior 2" loading="lazy"></div>
+  </div>
 </div>
 
 <!-- ROOMS -->
@@ -1338,6 +1381,11 @@
     });
   }
   buildGalleryData();
+  galleryData['general'] = {
+    photos: Array.from(document.querySelectorAll('.gallery-item img')).map(i => ({ src: i.src, alt: i.alt || '' })),
+    nameGr: 'Εσωτερικός & Εξωτερικός Χώρος',
+    nameEn: 'Interior & Exterior'
+  };
 
   let lbRoom = null, lbIdx = 0;
   let touchStartX = 0;
@@ -1347,6 +1395,17 @@
     if (!numEl) return;
     lbRoom = numEl.dataset.room;
     lbIdx = 0;
+    showPhoto();
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    lb.addEventListener('touchstart', lbTouchStart, { passive: true });
+    lb.addEventListener('touchend', lbTouchEnd, { passive: true });
+  }
+
+  function openGeneralGallery(idx) {
+    lbRoom = 'general';
+    lbIdx = idx;
     showPhoto();
     const lb = document.getElementById('lightbox');
     lb.style.display = 'flex';
