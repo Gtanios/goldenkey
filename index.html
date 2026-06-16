@@ -1469,14 +1469,17 @@
   }
 
   document.addEventListener('keydown', e => {
-    if (document.getElementById('lightbox').style.display !== 'flex') return;
+    const lbEl = document.getElementById('lightbox');
+    if (!lbEl || lbEl.style.display !== 'flex') return;
     if (e.key === 'ArrowRight') nextPhoto();
     else if (e.key === 'ArrowLeft') prevPhoto();
     else if (e.key === 'Escape') closeLightbox();
   });
 
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeLightbox();
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
   });
 
 </script>
