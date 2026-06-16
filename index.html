@@ -1282,18 +1282,18 @@
       <p class="form-label gr">Στειλτε μας μηνυμα</p>
       <p class="form-label en hidden">Send us a message</p>
       <div style="display:grid; grid-template-columns:2fr 1.5fr; gap:1rem; align-items:stretch;" class="form-map-grid">
-      <div class="contact-form">
-        <input type="text" id="inp-name" placeholder="Όνομα" required>
+      <form class="contact-form" id="contact-form">
+        <input type="text" id="inp-name" name="name" placeholder="Όνομα" required>
         <div class="form-row">
-          <input type="tel" id="inp-phone" placeholder="Τηλέφωνο" required pattern="[0-9+\s\-]{7,}">
-          <input type="email" id="inp-email" placeholder="Email" required>
+          <input type="tel" id="inp-phone" name="phone" placeholder="Τηλέφωνο" required pattern="[0-9+\s\-]{7,}">
+          <input type="email" id="inp-email" name="email" placeholder="Email" required>
         </div>
-        <textarea id="inp-msg" placeholder="Μήνυμα..." required></textarea>
-        <button class="btn-gold" style="width:100%; padding: 15px;" onclick="submitForm(event)">
+        <textarea id="inp-msg" name="message" placeholder="Μήνυμα..." required></textarea>
+        <button type="submit" class="btn-gold" style="width:100%; padding: 15px;" onclick="submitForm(event)">
           <span class="gr">Αποστολη Αιτηματος</span>
           <span class="en hidden">Send Request</span>
         </button>
-      </div>
+      </form>
       <div style="border:1px solid rgba(201,168,76,0.15); overflow:hidden; min-height:300px; display:flex;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.5!2d22.5972!3d40.2713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLeoforos+Stratou+6%2C+Paralia+Katerinis!5e0!3m2!1sel!2sgr!4v1" width="100%" height="100%" style="border:0; flex:1; filter:invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -1345,8 +1345,19 @@
     });
     if (!ok) return;
     const thanks = isGr ? 'Ευχαριστούμε! Θα επικοινωνήσουμε σύντομα.' : 'Thank you! We will contact you shortly.';
-    alert(thanks);
-    [name, phone, email, msg].forEach(el => el.value = '');
+    const errMsg = isGr ? 'Κάτι πήγε στραβά. Δοκιμάστε ξανά.' : 'Something went wrong. Please try again.';
+    fetch('https://formspree.io/f/xykavlqb', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(document.getElementById('contact-form'))
+    }).then(res => {
+      if (res.ok) {
+        alert(thanks);
+        [name, phone, email, msg].forEach(el => el.value = '');
+      } else {
+        alert(errMsg);
+      }
+    }).catch(() => alert(errMsg));
   }
 
   function setLang(lang) {
